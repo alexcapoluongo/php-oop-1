@@ -12,19 +12,21 @@ class Movie {
     public $language;
     public $age;
     public $averageVote;
+    public $foradult;
 
-    function __construct($_title, $_author, $_language, $_age, $_averageVote = []) {
+    function __construct($_title, $_author, $_language, $_age, $_averageVote = [], $_foradult = '') {
         $this->title = $_title;
         $this->author = $_author;
         $this->language = $_language;
         $this->age = $_age;
         $this->averageVote = $_averageVote;
+        $this->foradult = $_foradult;
     }
 
     public function getTitleAndAuthor()
     {
         return '<b>' . $this->title . '</b>' . " " . "by" . " " . $this->author . ', ' .
-        '<br>' . 'language' . ': ' . $this->language . '<br>'
+        '<br>' . 'language' . ': ' . $this->language . '<br>' . $this->foradult;
         ;
     }
 
@@ -42,19 +44,20 @@ class Movie {
     }
 
 
-    // public function isForAdult($_age) {
-    //     if($_age < 18) {
-    //         $_foradult = 'no';
-    //     } else {
-    //         $_foradult = 'yes';
-    //     }
-    // }
+    public function isForAdult($_age) {
+        if($_age < 18) {
+            $this->foradult = 'no';
+        } else {
+            $this->foradult = 'yes';
+        }
+    }
 }
 
 //nuovi film da aggiungere
 $gladiatore = new Movie('Il Gladiatore', 'Ridley Scott', 'english', 20);
 $gladiatore->insertVote(8);
 $gladiatore-> insertVote(2);
+$gladiatore->isForAdult(20);
 
 $adaptation = new Movie('Adaptation', 'Spike Jonze', 'english', 2);
 $adaptation->insertVote(3);
