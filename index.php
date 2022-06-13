@@ -11,9 +11,10 @@ class Movie {
     public $author;
     public $language;
     public $age;
+    public $foradult;
     // public $averageVote;
 
-    function __construct($_title, $_author, $_language, $_age) {
+    function __construct($_title, $_author, $_language, $_age, $_foradult = 0) {
         $this->title = $_title;
         $this->author = $_author;
         $this->language = $_language;
@@ -22,28 +23,29 @@ class Movie {
 
     public function getTitleAndAuthor()
     {
-        return $this->title . " " . "by" . " " . $this->author;
+        return '<b>' . $this->title . '</b>' . " " . "by" . " " . $this->author . ', ' . 'language' . ' ' . $this->language ;
     }
 
     // public function isForAdult($_age) {
     //     if($_age < 18) {
-    //         echo 'no';
+    //         $_foradult = 'no';
     //     } else {
-    //         echo 'yes';
+    //         $_foradult = 'yes';
     //     }
     // }
 }
 
 //nuovi film da aggiungere
-$gladiatore = new Movie('Il Gladiatore', 'Ridley Scott', 'english', 2);
-$adaptation = new Movie('Adaptation', 'Spike Jonze', 'english', 2);
-$aladdin = new Movie('Aladdin', 'Disney Pixar', 'english', 2);
-$becomingjane = new Movie('Becoming Jane', 'Jane Auster', 'english', 2);
-$beforenight = new Movie('Before Night Falls ', 'Reinaldo Kenas', 'english', 2);
-$brightstar = new Movie('Bright Star', 'John Keats', 'english', 2);
-$thisboys = new Movie('This boys Life', 'Tobias Wollf', 'german', 2);
+$gladiatore = new Movie('Il Gladiatore', 'Ridley Scott', 'english', 20,);
+$adaptation = new Movie('Adaptation', 'Spike Jonze', 'english', 2,);
+$aladdin = new Movie('Aladdin', 'Disney Pixar', 'english', 2,);
+$becomingjane = new Movie('Becoming Jane', 'Jane Auster', 'english', 2,);
+$beforenight = new Movie('Before Night Falls ', 'Reinaldo Kenas', 'english', 2,);
+$brightstar = new Movie('Bright Star', 'John Keats', 'english', 2,);
+$thisboys = new Movie('This boys Life', 'Tobias Wollf', 'german', 2,);
 
 var_dump($gladiatore);
+//creare un array dove pushiamo i movies
 
 $movies = [];
 $movies[] = $gladiatore;
@@ -56,8 +58,8 @@ $movies[] = $thisboys;
 ?>
 
 <ul>
-        <?php foreach ($movies as $item) {
-            echo '<li>' . $item->getTitleAndAuthor() . '</li>';
-            }
-        ?>
+    <?php foreach ($movies as $item) {
+        echo '<li>' . $item->getTitleAndAuthor() . '</li>';
+        }
+    ?>
 </ul>
