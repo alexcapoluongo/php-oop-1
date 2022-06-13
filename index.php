@@ -46,9 +46,9 @@ class Movie {
 
     public function isForAdult($_age) {
         if($_age < 18) {
-            $this->foradult = 'no';
+            $this->foradult = 'This film is adressed to all ages';
         } else {
-            $this->foradult = 'yes';
+            $this->foradult = 'This film is adressed to only an adult public';
         }
     }
 }
@@ -57,31 +57,40 @@ class Movie {
 $gladiatore = new Movie('Il Gladiatore', 'Ridley Scott', 'english', 20);
 $gladiatore->insertVote(8);
 $gladiatore-> insertVote(2);
-$gladiatore->isForAdult(20);
+$gladiatore->isForAdult(18);
 
 $adaptation = new Movie('Adaptation', 'Spike Jonze', 'english', 2);
 $adaptation->insertVote(3);
 $adaptation -> insertVote(2);
+$adaptation->isForAdult(18);
+
 
 $aladdin = new Movie('Aladdin', 'Disney Pixar', 'english', 2);
 $aladdin -> insertVote(10);
 $aladdin -> insertVote(10);
+$aladdin->isForAdult(17);
+
 
 $becomingjane = new Movie('Becoming Jane', 'Jane Auster', 'english', 2);
 $becomingjane -> insertVote(4);
 $becomingjane -> insertVote(5);
+$becomingjane->isForAdult(18);
+
 
 $beforenight = new Movie('Before Night Falls ', 'Reinaldo Kenas', 'english', 2);
 $beforenight -> insertVote(7);
 $beforenight -> insertVote(2);
+$beforenight->isForAdult(18);
 
 $brightstar = new Movie('Bright Star', 'John Keats', 'english', 2);
 $brightstar -> insertVote(3);
 $brightstar -> insertVote(1);
+$brightstar->isForAdult(17);
 
 $thisboys = new Movie('This boys Life', 'Tobias Wollf', 'german', 2);
 $thisboys -> insertVote(9);
 $thisboys -> insertVote(3);
+$thisboys->isForAdult(17);
 
 //creare un array dove pushiamo i movies
 
